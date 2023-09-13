@@ -1,28 +1,29 @@
 #include <stdio.h>
 /**
- * main - main block
- * Description: computes and prints the sum of all the multiples of 3 or
- * 5 below 1024 (excluded), followed by a new line
- * Return: 0
+ * main - Print the sum of even valued fibonnacci
+ *
+ * Return: Always 0.
  */
 int main(void)
 {
-	int i = 0;
-	long int a = 0, b = 1, next;
+unsigned long fibo1 = 0, fibo2 = 1, fibosum;
+float total_sum;
 
-	while (i < 50)
-	{
-		next = a + b;
-		a = b;
-		b = next;
-		printf("%lu", next);
+while (1)
+{
+fibosum = fibo1 + fibo2;
+if (fibosum > 4000000)
+break;
 
-		if (i < 49)
-		{
-			printf(", ");
-		}
-		i++;
-	}
-	putchar('\n');
-	return (0);
+if ((fibosum % 2) == 0)
+total_sum += fibosum;
+
+fibo1 = fibo2;
+fibo2 = fibosum;
+}
+
+printf("%.0f\n", total_sum);
+
+return (0);
+
 }
